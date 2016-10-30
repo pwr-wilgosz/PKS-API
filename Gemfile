@@ -20,11 +20,12 @@ gem 'puma', '~> 3.0'
 
 gem 'cancancan'
 gem 'rspec_api_documentation'
+gem "responders"
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem 'rspec-rails', '~> 3.5'
-  gem 'factory_girl'
+  gem "factory_girl_rails", "~> 4.0"
   gem 'sqlite3'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri

@@ -10,6 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20161030200712) do
+
+  create_table "buses", force: :cascade do |t|
+    t.integer  "spaces"
+    t.string   "registration_number"
+    t.string   "brand"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
 
 end
