@@ -19,9 +19,12 @@ gem 'puma', '~> 3.0'
 # gem 'rack-cors'
 
 gem 'cancancan'
+gem 'rspec_api_documentation'
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record
+  gem 'rspec-rails', '~> 3.5'
+  gem 'factory_girl'
   gem 'sqlite3'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
@@ -36,8 +39,7 @@ group :development do
 end
 
 group :test do
-  gem 'rspec-rails'
-  gem 'shoulda-matchers', github: 'thoughtbot/shoulda-matchers'
+  gem 'shoulda-matchers', '~> 3.1'
   gem 'shoulda-callback-matchers', '~> 1.1.1'
 end
 
