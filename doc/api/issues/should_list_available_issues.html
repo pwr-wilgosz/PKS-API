@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Buses API</title>
+    <title>Issues API</title>
     <meta charset="utf-8">
     <style>
       
@@ -106,11 +106,11 @@ table th, table td {
   </head>
   <body>
     <div class="container">
-      <h1>Buses API</h1>
+      <h1>Issues API</h1>
 
       <div class="article">
-        <h2>should list available busses</h2>
-        <h3>GET /buses</h3>
+        <h2>should list available issues</h2>
+        <h3>GET /issues</h3>
 
 
 
@@ -121,7 +121,7 @@ table th, table td {
 Cookie: </pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">GET /buses?format=json</pre>
+          <pre class="request route highlight">GET /issues?format=json</pre>
 
             <h4>Query Parameters</h4>
             <pre class="request query_parameters highlight">format: json</pre>
@@ -134,22 +134,23 @@ Cookie: </pre>
 X-XSS-Protection: 1; mode=block
 X-Content-Type-Options: nosniff
 Content-Type: application/json; charset=utf-8
-ETag: W/&quot;0699912a8f30c4c0726a31af76b94417&quot;
+ETag: W/&quot;4d05aa9b87b65784c796a4c4d7be2a70&quot;
 Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: f4ac34ad-89a6-47d4-b7e7-068cf7c5614e
-X-Runtime: 0.018078
-Content-Length: 154</pre>
+X-Request-Id: 956d287f-163c-4b85-acd2-c1ba43230484
+X-Runtime: 0.007205
+Content-Length: 160</pre>
             <h4>Status</h4>
             <pre class="response status">200 OK</pre>
               <h4>Body</h4>
               <pre class="response body">[
   {
     &quot;id&quot;: 1,
-    &quot;spaces&quot;: 45,
-    &quot;registration_number&quot;: &quot;DW  AAA1&quot;,
-    &quot;brand&quot;: &quot;Mercedes&quot;,
-    &quot;created_at&quot;: &quot;2016-11-05T11:46:21.993Z&quot;,
-    &quot;updated_at&quot;: &quot;2016-11-05T11:46:21.993Z&quot;
+    &quot;name&quot;: &quot;MyString&quot;,
+    &quot;bus_id&quot;: null,
+    &quot;description&quot;: &quot;MyText&quot;,
+    &quot;solved&quot;: false,
+    &quot;created_at&quot;: &quot;2016-11-05T11:46:22.064Z&quot;,
+    &quot;updated_at&quot;: &quot;2016-11-05T11:46:22.064Z&quot;
   }
 ]</pre>
       </div>
