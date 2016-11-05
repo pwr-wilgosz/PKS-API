@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Registrations API</title>
+    <title>Buses API</title>
     <meta charset="utf-8">
     <style>
       
@@ -106,27 +106,29 @@ table th, table td {
   </head>
   <body>
     <div class="container">
-      <h1>Registrations API</h1>
+      <h1>Buses API</h1>
 
       <div class="article">
-        <h2>should register the user</h2>
-        <h3>POST /auth</h3>
+        <h2>delete - destroys a bus</h2>
+        <h3>DELETE /buses/:id</h3>
 
 
 
           <h3>Request</h3>
 
             <h4>Headers</h4>
-            <pre class="request headers">Host: example.org
+            <pre class="request headers">Access-Token: ChQiVFJ0DdRFW1j146Xl7g
+Client: orSOYBcsaEMLBRIDAAC1zg
+Token-Type: Bearer
+Uid: instructor9@test.com
+Host: example.org
 Content-Type: application/x-www-form-urlencoded
 Cookie: </pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">POST /auth</pre>
+          <pre class="request route highlight">DELETE /buses/1</pre>
 
 
-            <h4>Body</h4>
-            <pre class="request body">format=json&email=sample%40email.com&password=password&password_confirmation=password</pre>
 
 
             <h3>Response</h3>
@@ -134,30 +136,11 @@ Cookie: </pre>
               <pre class="response headers">X-Frame-Options: SAMEORIGIN
 X-XSS-Protection: 1; mode=block
 X-Content-Type-Options: nosniff
-Content-Type: application/json; charset=utf-8
-ETag: W/&quot;ba4116caef8d0d6bc212b8e2d5fa0506&quot;
-Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: 642ef5f2-d449-4c41-9aa1-c4026d4cb556
-X-Runtime: 0.708115
-Content-Length: 240</pre>
+Cache-Control: no-cache
+X-Request-Id: 5b9ccbea-4b67-489a-b487-9b218fc6e597
+X-Runtime: 0.093112</pre>
             <h4>Status</h4>
-            <pre class="response status">200 OK</pre>
-              <h4>Body</h4>
-              <pre class="response body">{
-  &quot;status&quot;: &quot;success&quot;,
-  &quot;data&quot;: {
-    &quot;id&quot;: 1,
-    &quot;provider&quot;: &quot;email&quot;,
-    &quot;uid&quot;: &quot;sample@email.com&quot;,
-    &quot;name&quot;: null,
-    &quot;nickname&quot;: null,
-    &quot;image&quot;: null,
-    &quot;email&quot;: &quot;sample@email.com&quot;,
-    &quot;created_at&quot;: &quot;2016-11-05T16:16:32.968Z&quot;,
-    &quot;updated_at&quot;: &quot;2016-11-05T16:16:32.968Z&quot;,
-    &quot;role&quot;: null
-  }
-}</pre>
+            <pre class="response status">204 No Content</pre>
       </div>
     </div>
   </body>
