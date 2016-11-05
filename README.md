@@ -41,7 +41,7 @@ We use RSpec for tests. To run tests:
 
     spring rspec
     #or
-    rake docs:generate
+    rake docs:generat
 
 
 ##Catching emails
@@ -53,5 +53,11 @@ We use RSpec for tests. To run tests:
 
 ##Deployment
 
-We deploy application on heroku.
+We deploy application on heroku. http://pks-app.herokuapp.com
+
+To deploy an application to heroku, run:
+
+    git push heroku master
+
+Refer to: https://dashboard.heroku.com/apps/pks-app/deploy/heroku-git
 
