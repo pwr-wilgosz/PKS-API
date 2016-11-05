@@ -109,22 +109,24 @@ table th, table td {
       <h1>Issues API</h1>
 
       <div class="article">
-        <h2>should list available issues</h2>
-        <h3>GET /issues</h3>
+        <h2>index - accessible by driver</h2>
+        <h3>GET buses/:bus_id/issues</h3>
 
 
 
           <h3>Request</h3>
 
             <h4>Headers</h4>
-            <pre class="request headers">Host: example.org
+            <pre class="request headers">Access-Token: SthnvatbRjhS8ADEbNoV2w
+Client: gUbTfEbAXFHaqlqXBHw_6Q
+Token-Type: Bearer
+Uid: instructor11@test.com
+Host: example.org
 Cookie: </pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">GET /issues?format=json</pre>
+          <pre class="request route highlight">GET buses/1/issues</pre>
 
-            <h4>Query Parameters</h4>
-            <pre class="request query_parameters highlight">format: json</pre>
 
 
 
@@ -134,11 +136,11 @@ Cookie: </pre>
 X-XSS-Protection: 1; mode=block
 X-Content-Type-Options: nosniff
 Content-Type: application/json; charset=utf-8
-ETag: W/&quot;ce8e3d7b0657681af9deb9468006c000&quot;
+ETag: W/&quot;3d0fae478ca4b3fb2aafd5162debcfcb&quot;
 Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: 1fb42196-3760-44c4-b810-2122fab17ceb
-X-Runtime: 0.006836
-Content-Length: 160</pre>
+X-Request-Id: 63c0255f-6ea4-4b4d-8620-bbf2711f1ac5
+X-Runtime: 0.112950
+Content-Length: 157</pre>
             <h4>Status</h4>
             <pre class="response status">200 OK</pre>
               <h4>Body</h4>
@@ -146,11 +148,11 @@ Content-Length: 160</pre>
   {
     &quot;id&quot;: 1,
     &quot;name&quot;: &quot;MyString&quot;,
-    &quot;bus_id&quot;: null,
+    &quot;bus_id&quot;: 1,
     &quot;description&quot;: &quot;MyText&quot;,
     &quot;solved&quot;: false,
-    &quot;created_at&quot;: &quot;2016-11-05T16:16:32.935Z&quot;,
-    &quot;updated_at&quot;: &quot;2016-11-05T16:16:32.935Z&quot;
+    &quot;created_at&quot;: &quot;2016-11-05T16:32:38.818Z&quot;,
+    &quot;updated_at&quot;: &quot;2016-11-05T16:32:38.821Z&quot;
   }
 ]</pre>
       </div>

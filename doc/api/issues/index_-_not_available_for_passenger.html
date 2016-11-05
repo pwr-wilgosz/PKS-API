@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Buses API</title>
+    <title>Issues API</title>
     <meta charset="utf-8">
     <style>
       
@@ -106,26 +106,26 @@ table th, table td {
   </head>
   <body>
     <div class="container">
-      <h1>Buses API</h1>
+      <h1>Issues API</h1>
 
       <div class="article">
-        <h2>delete - not authorized example</h2>
-        <h3>DELETE /buses/:id</h3>
-          <p class="explanation">
-            When user is logged out or has no permission to update a bus
-          </p>
+        <h2>index - not available for passenger</h2>
+        <h3>GET buses/:bus_id/issues</h3>
 
 
 
           <h3>Request</h3>
 
             <h4>Headers</h4>
-            <pre class="request headers">Host: example.org
-Content-Type: application/x-www-form-urlencoded
+            <pre class="request headers">Access-Token: n5EZmyVuB_WcrfC2J_Ezzw
+Client: q4LuQqdBZ5LOwovZz7NOTg
+Token-Type: Bearer
+Uid: instructor10@test.com
+Host: example.org
 Cookie: </pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">DELETE /buses/1</pre>
+          <pre class="request route highlight">GET buses/1/issues</pre>
 
 
 
@@ -137,16 +137,19 @@ X-XSS-Protection: 1; mode=block
 X-Content-Type-Options: nosniff
 Content-Type: application/json; charset=utf-8
 Cache-Control: no-cache
-X-Request-Id: 64959da1-8b2b-47d1-a03b-ea4656c5fa28
-X-Runtime: 0.001623
-Content-Length: 37</pre>
+X-Request-Id: 2e01cce0-dca9-418c-a35b-7e2149c3f6a6
+X-Runtime: 0.115927
+Content-Length: 97</pre>
             <h4>Status</h4>
-            <pre class="response status">401 Unauthorized</pre>
+            <pre class="response status">403 Forbidden</pre>
               <h4>Body</h4>
               <pre class="response body">{
-  &quot;errors&quot;: [
-    &quot;Authorized users only.&quot;
-  ]
+  &quot;status&quot;: &quot;error&quot;,
+  &quot;errors&quot;: {
+    &quot;authentication&quot;: [
+      &quot;You are not auhtorized to access this resource&quot;
+    ]
+  }
 }</pre>
       </div>
     </div>
