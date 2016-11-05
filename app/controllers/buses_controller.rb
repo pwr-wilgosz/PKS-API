@@ -11,6 +11,15 @@ class BusesController < ApplicationController
     respond_with Bus.create(bus_params)
   end
 
+  def update
+    @bus.update_attributes(bus_params)
+    respond_with @bus
+  end
+
+  def destroy
+    respond_with @bus.destroy
+  end
+
   private
 
   def bus_params
