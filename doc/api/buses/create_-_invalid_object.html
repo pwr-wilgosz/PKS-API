@@ -109,22 +109,25 @@ table th, table td {
       <h1>Buses API</h1>
 
       <div class="article">
-        <h2>should list available busses</h2>
-        <h3>GET /buses</h3>
+        <h2>create - invalid object</h2>
+        <h3>POST /buses</h3>
 
 
 
           <h3>Request</h3>
 
             <h4>Headers</h4>
-            <pre class="request headers">Host: example.org
+            <pre class="request headers">Access-Token: wKQQS_uu5vKlhDqNWTQYiA
+Client: Rc-RfbxsZSu732AS9xHpsA
+Token-Type: Bearer
+Uid: instructor3@test.com
+Host: example.org
+Content-Type: application/x-www-form-urlencoded
 Cookie: </pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">GET /buses?format=json</pre>
+          <pre class="request route highlight">POST /buses</pre>
 
-            <h4>Query Parameters</h4>
-            <pre class="request query_parameters highlight">format: json</pre>
 
 
 
@@ -134,24 +137,26 @@ Cookie: </pre>
 X-XSS-Protection: 1; mode=block
 X-Content-Type-Options: nosniff
 Content-Type: application/json; charset=utf-8
-ETag: W/&quot;109910809e7dfd83a876e231757cedca&quot;
-Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: f2975fa9-30f5-4cdd-82b8-e3e9b90fa060
-X-Runtime: 0.028703
-Content-Length: 154</pre>
+Cache-Control: no-cache
+X-Request-Id: 9874424d-e4b5-4b51-94f1-414bc94777e8
+X-Runtime: 0.173176
+Content-Length: 108</pre>
             <h4>Status</h4>
-            <pre class="response status">200 OK</pre>
+            <pre class="response status">422 Unprocessable Entity</pre>
               <h4>Body</h4>
-              <pre class="response body">[
-  {
-    &quot;id&quot;: 1,
-    &quot;spaces&quot;: 45,
-    &quot;registration_number&quot;: &quot;DW  AAA1&quot;,
-    &quot;brand&quot;: &quot;Mercedes&quot;,
-    &quot;created_at&quot;: &quot;2016-11-05T13:07:27.062Z&quot;,
-    &quot;updated_at&quot;: &quot;2016-11-05T13:07:27.062Z&quot;
+              <pre class="response body">{
+  &quot;errors&quot;: {
+    &quot;registration_number&quot;: [
+      &quot;can&#39;t be blank&quot;
+    ],
+    &quot;brand&quot;: [
+      &quot;can&#39;t be blank&quot;
+    ],
+    &quot;spaces&quot;: [
+      &quot;can&#39;t be blank&quot;
+    ]
   }
-]</pre>
+}</pre>
       </div>
     </div>
   </body>

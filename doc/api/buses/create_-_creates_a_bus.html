@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Issues API</title>
+    <title>Buses API</title>
     <meta charset="utf-8">
     <style>
       
@@ -106,26 +106,31 @@ table th, table td {
   </head>
   <body>
     <div class="container">
-      <h1>Issues API</h1>
+      <h1>Buses API</h1>
 
       <div class="article">
-        <h2>should list available issues</h2>
-        <h3>GET /issues</h3>
+        <h2>create - creates a bus</h2>
+        <h3>POST /buses</h3>
 
 
 
           <h3>Request</h3>
 
             <h4>Headers</h4>
-            <pre class="request headers">Host: example.org
+            <pre class="request headers">Access-Token: uQaHR97iHNyjY6bGSkCVAQ
+Client: WaBBYbjgEAxJJSM4DPUAaQ
+Token-Type: Bearer
+Uid: instructor4@test.com
+Host: example.org
+Content-Type: application/x-www-form-urlencoded
 Cookie: </pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">GET /issues?format=json</pre>
+          <pre class="request route highlight">POST /buses</pre>
 
-            <h4>Query Parameters</h4>
-            <pre class="request query_parameters highlight">format: json</pre>
 
+            <h4>Body</h4>
+            <pre class="request body">brand=porshe&spaces=10&registration_number=DW+1123</pre>
 
 
             <h3>Response</h3>
@@ -133,26 +138,24 @@ Cookie: </pre>
               <pre class="response headers">X-Frame-Options: SAMEORIGIN
 X-XSS-Protection: 1; mode=block
 X-Content-Type-Options: nosniff
+Location: http://example.org/buses/1
 Content-Type: application/json; charset=utf-8
-ETag: W/&quot;eec4fad3658e6d162c50818b36010e67&quot;
+ETag: W/&quot;476aacf8354165d77925c24f13547f69&quot;
 Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: afb468d9-6ea6-4c94-bd6d-782ed4ced102
-X-Runtime: 0.006367
-Content-Length: 160</pre>
+X-Request-Id: 00afab96-5a64-4ebc-9431-68fa8514810d
+X-Runtime: 0.108154
+Content-Length: 149</pre>
             <h4>Status</h4>
-            <pre class="response status">200 OK</pre>
+            <pre class="response status">201 Created</pre>
               <h4>Body</h4>
-              <pre class="response body">[
-  {
-    &quot;id&quot;: 1,
-    &quot;name&quot;: &quot;MyString&quot;,
-    &quot;bus_id&quot;: null,
-    &quot;description&quot;: &quot;MyText&quot;,
-    &quot;solved&quot;: false,
-    &quot;created_at&quot;: &quot;2016-11-05T15:58:46.282Z&quot;,
-    &quot;updated_at&quot;: &quot;2016-11-05T15:58:46.282Z&quot;
-  }
-]</pre>
+              <pre class="response body">{
+  &quot;id&quot;: 1,
+  &quot;spaces&quot;: 10,
+  &quot;registration_number&quot;: &quot;DW 1123&quot;,
+  &quot;brand&quot;: &quot;porshe&quot;,
+  &quot;created_at&quot;: &quot;2016-11-05T15:58:46.217Z&quot;,
+  &quot;updated_at&quot;: &quot;2016-11-05T15:58:46.217Z&quot;
+}</pre>
       </div>
     </div>
   </body>

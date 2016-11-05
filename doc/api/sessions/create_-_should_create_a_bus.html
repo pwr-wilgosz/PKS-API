@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Issues API</title>
+    <title>Sessions API</title>
     <meta charset="utf-8">
     <style>
       
@@ -106,11 +106,11 @@ table th, table td {
   </head>
   <body>
     <div class="container">
-      <h1>Issues API</h1>
+      <h1>Sessions API</h1>
 
       <div class="article">
-        <h2>should list available issues</h2>
-        <h3>GET /issues</h3>
+        <h2>create - should create a bus</h2>
+        <h3>POST /auth/sign_in</h3>
 
 
 
@@ -118,14 +118,15 @@ table th, table td {
 
             <h4>Headers</h4>
             <pre class="request headers">Host: example.org
+Content-Type: application/x-www-form-urlencoded
 Cookie: </pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">GET /issues?format=json</pre>
+          <pre class="request route highlight">POST /auth/sign_in</pre>
 
-            <h4>Query Parameters</h4>
-            <pre class="request query_parameters highlight">format: json</pre>
 
+            <h4>Body</h4>
+            <pre class="request body">format=json&email=instructor5%40test.com&password=password</pre>
 
 
             <h3>Response</h3>
@@ -134,25 +135,31 @@ Cookie: </pre>
 X-XSS-Protection: 1; mode=block
 X-Content-Type-Options: nosniff
 Content-Type: application/json; charset=utf-8
-ETag: W/&quot;eec4fad3658e6d162c50818b36010e67&quot;
+access-token: OidHO93ixbgfqltRUimx7Q
+token-type: Bearer
+client: oI4AdkGBOUvTt1dClVwMRg
+expiry: 1479571127
+uid: instructor5@test.com
+ETag: W/&quot;0453d603e0fc34ce94538a2cebe20f2e&quot;
 Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: afb468d9-6ea6-4c94-bd6d-782ed4ced102
-X-Runtime: 0.006367
-Content-Length: 160</pre>
+X-Request-Id: c5bc1747-3735-4bad-82a4-e5f624b54331
+X-Runtime: 0.179550
+Content-Length: 149</pre>
             <h4>Status</h4>
             <pre class="response status">200 OK</pre>
               <h4>Body</h4>
-              <pre class="response body">[
-  {
+              <pre class="response body">{
+  &quot;data&quot;: {
     &quot;id&quot;: 1,
-    &quot;name&quot;: &quot;MyString&quot;,
-    &quot;bus_id&quot;: null,
-    &quot;description&quot;: &quot;MyText&quot;,
-    &quot;solved&quot;: false,
-    &quot;created_at&quot;: &quot;2016-11-05T15:58:46.282Z&quot;,
-    &quot;updated_at&quot;: &quot;2016-11-05T15:58:46.282Z&quot;
+    &quot;email&quot;: &quot;instructor5@test.com&quot;,
+    &quot;provider&quot;: &quot;email&quot;,
+    &quot;uid&quot;: &quot;instructor5@test.com&quot;,
+    &quot;name&quot;: null,
+    &quot;nickname&quot;: null,
+    &quot;image&quot;: null,
+    &quot;role&quot;: null
   }
-]</pre>
+}</pre>
       </div>
     </div>
   </body>
