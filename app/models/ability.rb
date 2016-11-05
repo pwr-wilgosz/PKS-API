@@ -9,6 +9,7 @@ class Ability
       when 'driver'
         can [:read, :create], Issue
       when 'mechanic'
+        can :read, :all
         can :manage, Issue
       when 'passenger'
       when 'admin'
