@@ -40,6 +40,16 @@ Things you may want to cover:
 We use RSpec for tests. To run tests:
 
     spring rspec
+    #or
+    rake docs:generate
+
+
+##Catching emails
+
+    gem install mailcatcher
+    mailcatcher
+    Go to http://localhost:1080/
+    Send mail through smtp://localhost:1025
 
 ##Deployment
 

@@ -21,6 +21,9 @@ gem 'puma', '~> 3.0'
 gem 'cancancan'
 gem 'rspec_api_documentation'
 gem "responders"
+gem 'devise'
+gem 'omniauth'
+gem 'devise_token_auth'
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record
