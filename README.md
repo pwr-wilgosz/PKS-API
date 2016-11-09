@@ -26,7 +26,6 @@ Things you may want to cover:
     rake db:schema:load
     rake db:seed #to load sample data
 
-
 ##Launching the app
 
     rails s
