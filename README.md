@@ -59,4 +59,3 @@ To deploy an application to heroku, run:
     git push heroku master
 
 Refer to: https://dashboard.heroku.com/apps/pks-app/deploy/heroku-git
-
