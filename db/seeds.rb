@@ -16,6 +16,7 @@ Bus.create [
 
 Issue.destroy_all
 Issue.create [
-  { name: 'Wheel broken', description: 'Sample description', bus: Bus.first, solved: false }
+  { name: 'Wheel broken', description: 'Sample description', bus: Bus.first, solved: false },
+  { name: 'Air conditioning fail', description: 'Air conditioning is not working', bus: Bus.first, solved: true },
+  { name: 'Porshe'' signpost', description: 'Signpost in this bus flashes too fast.', bus: Bus.find_by_registration_number('DW ABC2'), solved: false },
 ]
-
