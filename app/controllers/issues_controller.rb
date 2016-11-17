@@ -8,6 +8,16 @@ class IssuesController < ApplicationController
     respond_with Issue.where(bus_id: params[:bus_id])
   end
 
+  def create
+    issue = Issue.create(issue_params)
+    render json: {
+      status: 'OK',
+      result: {
+        issue: issue.to_json
+      }
+    }, status: 200
+  end
+
   def update
     @issue.update_attributes(issue_params)
     respond_with @issue
@@ -18,6 +28,7 @@ class IssuesController < ApplicationController
   end
 
   def issue_params
-    params.permit(:name, :description, :solved)
+    params.require(:bus_id)
+    params.permit(:bus_id, :name, :description, :solved)
   end
 end
