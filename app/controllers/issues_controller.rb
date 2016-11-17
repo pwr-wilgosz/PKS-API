@@ -1,6 +1,6 @@
 class IssuesController < ApplicationController
   before_action :authenticate_user!
-  before_action :get_issue , only: [:update]
+  before_action :get_issue , only: [:update, :destroy]
   load_and_authorize_resource :bus
   load_and_authorize_resource :issue, through: :bus
 
@@ -10,6 +10,18 @@ class IssuesController < ApplicationController
 
   def create
     issue = Issue.create(issue_params)
+
+    render json: {
+      status: 'OK',
+      result: {
+        issue: issue.to_json
+      }
+    }, status: 200
+  end
+
+  def destroy
+    issue = Issue.destroy(@issue)
+
     render json: {
       status: 'OK',
       result: {
@@ -24,6 +36,8 @@ class IssuesController < ApplicationController
   end
 
   def get_issue
+    params.require(:id)
+    params.require(:bus_id)
   	@issue = Issue.where(id: params[:id], bus_id: params[:bus_id]).take(1)
   end
 
