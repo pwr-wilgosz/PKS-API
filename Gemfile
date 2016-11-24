@@ -1,26 +1,13 @@
 source 'https://rubygems.org'
 
-
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
-# Use Puma as the app server
-gem 'puma', '~> 3.0'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-# gem 'jbuilder', '~> 2.5'
-# Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 3.0'
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'puma', '~> 3.0' # Use Puma as the app server
 
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+gem 'cancancan' #access management
+gem 'rspec_api_documentation' #auto-generate docs
+gem "responders" #respond_with
 
-# Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
-# gem 'rack-cors'
-
-gem 'cancancan'
-gem 'rspec_api_documentation'
-gem "responders"
+#three below are for session management
 gem 'devise'
 gem 'omniauth'
 gem 'devise_token_auth'
@@ -48,7 +35,7 @@ group :test do
 end
 
 group :production do
-  gem 'pg'
+  gem 'pg' #postgres db on production
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
