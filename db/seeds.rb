@@ -1,9 +1,10 @@
+current_time = Time.now
 User.destroy_all
 User.create [
-  { email: 'driver@test.com', role: 'driver', password: 'password', password_confirmation: 'password' },
-  { email: 'passenger@test.com', role: 'passenger', password: 'password', password_confirmation: 'password' },
-  { email: 'mechanic@test.com', role: 'mechanic', password: 'password', password_confirmation: 'password' },
-  { email: 'admin@test.com', role: 'admin', password: 'password', password_confirmation: 'password' }
+  { email: 'driver@test.com', role: 'driver', password: 'password', password_confirmation: 'password', confirmed_at: current_time },
+  { email: 'passenger@test.com', role: 'passenger', password: 'password', password_confirmation: 'password', confirmed_at: current_time },
+  { email: 'mechanic@test.com', role: 'mechanic', password: 'password', password_confirmation: 'password', confirmed_at: current_time },
+  { email: 'admin@test.com', role: 'admin', password: 'password', password_confirmation: 'password', confirmed_at: current_time }
 ]
 
 Bus.destroy_all
@@ -20,3 +21,4 @@ Issue.create [
   { name: 'Air conditioning fail', description: 'Air conditioning is not working', bus: Bus.first, solved: true },
   { name: 'Porshe'' signpost', description: 'Signpost in this bus flashes too fast.', bus: Bus.find_by_registration_number('DW ABC2'), solved: false },
 ]
+
