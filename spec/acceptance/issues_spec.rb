@@ -159,7 +159,7 @@ resource 'Issues' do
     end
   end
 
-  delete '/buses/:bus_id/issues/:id' do
+  delete '/issues/:id' do
     it 'delete issue - not available for logged out users' do
       do_request bus_id: issue.bus_id
       expect(status).to be 401
@@ -230,7 +230,7 @@ resource 'Issues' do
     end
   end
 
-  put '/buses/:bus_id/issues/:id' do
+  put '/issues/:id' do
     it 'update - not available for logged out users' do
       do_request bus_id: bus.id
       expect(status).to be 401
@@ -301,3 +301,4 @@ resource 'Issues' do
     end
   end
 end
+
