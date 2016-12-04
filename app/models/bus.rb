@@ -3,6 +3,6 @@ class Bus < ApplicationRecord
   validates :brand, presence: true
   validates :spaces, presence: true
 
-  has_many :issues
+  has_many :issues, dependent: :destroy
 end
 
