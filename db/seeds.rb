@@ -22,3 +22,32 @@ Issue.create [
   { name: 'Porshe'' signpost', description: 'Signpost in this bus flashes too fast.', bus: Bus.find_by_registration_number('DW ABC2'), solved: false },
 ]
 
+Stop.destroy_all
+Stop.create [
+  { name: 'Wroclaw' },
+  { name: 'New York' },
+  { name: 'London' },
+  { name: 'Szczawno-Zdroj' },
+]
+
+Course.destroy_all
+Course.create [
+  { },
+  { }
+]
+
+CourseStop.destroy_all
+CourseStop.create [
+  { course: Course.first, stop: Stop.first },
+  { course: Course.first, stop: Stop.second },
+  { course: Course.first, stop: Stop.last },
+  { course: Course.last, stop: Stop.first },
+  { course: Course.last, stop: Stop.third },
+  { course: Course.last, stop: Stop.last }
+]
+
+BusCourse.destroy_all
+BusCourse.create [
+  { bus: Bus.first, course: Course.first },
+  { bus: Bus.second, course: Course.last }
+]
