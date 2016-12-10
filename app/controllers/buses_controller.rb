@@ -7,6 +7,10 @@ class BusesController < ApplicationController
     respond_with Bus.all
   end
 
+  def show
+    respond_with Bus.find(params[:id])
+  end
+
   def create
     respond_with Bus.create(bus_params)
   end
