@@ -9,7 +9,7 @@ resource 'Sessions' do
       expect(status).to be 401
     end
 
-    it 'create - should create a bus' do
+    it 'create - should create a seesion' do
       user = create :user
       do_request format: :json, email: user.email, password: 'password'
       expect(status).to be 200
