@@ -271,7 +271,7 @@ resource 'Stops' do
       end
 
       put '/stops/:id' do
-        it 'validation failed - name too short' do
+        it 'validation pass' do
           do_request id: stop.id, name: 'aaaaa'
           expect(status).to be 204
         end
