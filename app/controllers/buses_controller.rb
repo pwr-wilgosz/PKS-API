@@ -30,4 +30,3 @@ class BusesController < ApplicationController
     params.permit(:brand, :spaces, :registration_number)
   end
 end
-

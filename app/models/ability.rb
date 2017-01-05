@@ -3,6 +3,8 @@ class Ability
 
   def initialize(user)
     can :read, Bus
+    can :read, Course
+    can :read, Stop
 
     if user.present?
       case user.role
