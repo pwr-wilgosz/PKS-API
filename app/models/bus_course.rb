@@ -1,4 +1,4 @@
 class BusCourse < ApplicationRecord
-  belongs_to :bus, dependent: :destroy
-  belongs_to :course, dependent: :destroy
+  belongs_to :bus
+  belongs_to :course
 end
