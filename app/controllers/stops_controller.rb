@@ -12,11 +12,11 @@ class StopsController < ApplicationController
   end
 
   def create
-    respond_with Stop.create() #stop_params
+    respond_with Stop.create(stop_params)
   end
 
   def update
-    @stop.update_attributes() #stop_params
+    @stop.update_attributes(stop_params)
     respond_with @stop
   end
 
@@ -26,7 +26,7 @@ class StopsController < ApplicationController
 
   private
 
-  #def stop_params
-  #  params.permit(:a, :b, :c)
-  #end
+  def stop_params
+    params.permit(:name)
+  end
 end
