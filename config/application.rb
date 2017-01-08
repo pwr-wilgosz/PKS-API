@@ -30,10 +30,20 @@ module Source
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
 
-    config.middleware.insert_before 0, Rack::Cors do
+    config.middleware.insert_before 0, "Rack::Cors", debug: true, logger: (-> { Rails.logger }) do
       allow do
-        origins '*', 'localhost:3000', 'localhost:4200'
-        resource '*', headers: :any, methods: [:get, :post, :options]
+        origins '*'
+
+        resource '/cors',
+          headers: :any,
+          methods: [:post, :get, :delete, :put, :patch, :options, :head],
+          credentials: true,
+          max_age: 0
+
+        resource '*',
+          headers: :any,
+          methods: [:get, :post, :delete, :put, :patch, :options, :head],
+          max_age: 0
       end
     end
   end
