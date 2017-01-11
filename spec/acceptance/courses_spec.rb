@@ -1,49 +1,57 @@
 require 'rails_helper'
 require 'rspec_api_documentation/dsl'
 
-resource 'Stops' do
-  let(:stop) { create :stop, courses: [create(:course)] }
-  let(:course) { stop.courses.first }
+resource 'Courses' do
+  let(:course) { create :course, stops: [create(:stop)], buses: [create(:bus)] }
+  let(:stop) { course.stops.first }
+  let(:bus) { course.buses.first }
 
   context 'not authorized' do
-    get '/stops' do
-      it 'index - list stops' do
+    get '/courses' do
+      it 'course - list courses' do
         do_request format: :json
         expect(status).to be 200
       end
     end
 
-    get '/stops/:id' do
-      it 'show - show stop' do
-        do_request id: stop.id
+    get '/courses/:id' do
+      it 'show - show course' do
+        do_request id: course.id
         expect(status).to be 200
       end
     end
 
-    get '/stops/:id/courses' do
-      it 'show - show stop courses' do
-        do_request id: stop.id
+    get '/courses/:id/stops' do
+      it 'show - show course stops' do
+        do_request id: course.id
         expect(status).to be 200
       end
     end
 
-    post '/stops' do
+    get '/courses/:id/buses' do
+      it 'show - show course buses' do
+        do_request id: course.id
+        expect(status).to be 200
+      end
+    end
+
+    post '/courses' do
       it 'post - only authorized' do
-        do_request id: stop.id
+        do_request id: course.id
         expect(status).to be 401
       end
     end
 
-    put '/stops/:id' do
+    put '/courses/:id' do
       it 'put - only authorized' do
-        do_request id: stop.id
+        do_request id: course.id
         expect(status).to be 401
       end
     end
 
-    delete '/stops/:id' do
+    delete '/courses/:id' do
       it 'delete - only authorized' do
-        do_request id: stop.id
+        do_request id: course.id
         expect(status).to be 401
       end
     end
@@ -59,44 +67,51 @@ resource 'Stops' do
       header 'uid', token['uid']
     end
 
-    get '/stops' do
-      it 'index - list stops' do
+    get '/courses' do
+      it 'index - list courses' do
         do_request format: :json
         expect(status).to be 200
       end
     end
 
-    get '/stops/:id' do
-      it 'show - show stop' do
-        do_request id: stop.id
+    get '/courses/:id' do
+      it 'show - show course' do
+        do_request id: course.id
         expect(status).to be 200
       end
     end
 
-    get '/stops/:id/courses' do
-      it 'show - show stop courses' do
-        do_request id: stop.id
+    get '/courses/:id/stops' do
+      it 'show - show course stops' do
+        do_request id: course.id
         expect(status).to be 200
       end
     end
 
-    post '/stops' do
+    get '/courses/:id/buses' do
+      it 'show - show course buses' do
+        do_request id: course.id
+        expect(status).to be 200
+      end
+    end
+
+    post '/courses' do
       it 'post - access denied' do
-        do_request id: stop.id
+        do_request id: course.id
         expect(status).to be 403
       end
     end
 
-    put '/stops/:id' do
+    put '/courses/:id' do
       it 'put - access denied' do
-        do_request id: stop.id
+        do_request id: course.id
         expect(status).to be 403
       end
     end
 
-    delete '/stops/:id' do
+    delete '/courses/:id' do
       it 'delete - access denied' do
-        do_request id: stop.id
+        do_request id: course.id
         expect(status).to be 403
       end
     end
@@ -112,44 +127,51 @@ resource 'Stops' do
       header 'uid', token['uid']
     end
 
-    get '/stops' do
-      it 'index - list stops' do
+    get '/courses' do
+      it 'index - list courses' do
         do_request format: :json
         expect(status).to be 200
       end
     end
 
-    get '/stops/:id' do
-      it 'show - show stop' do
-        do_request id: stop.id
+    get '/courses/:id' do
+      it 'show - show course' do
+        do_request id: course.id
         expect(status).to be 200
       end
     end
 
-    get '/stops/:id/courses' do
-      it 'show - show stop courses' do
-        do_request id: stop.id
+    get '/courses/:id/stops' do
+      it 'show - show course stops' do
+        do_request id: course.id
         expect(status).to be 200
       end
     end
 
-    post '/stops' do
+    get '/courses/:id/buses' do
+      it 'show - show course buses' do
+        do_request id: course.id
+        expect(status).to be 200
+      end
+    end
+
+    post '/courses' do
       it 'post - access denied' do
-        do_request id: stop.id
+        do_request id: course.id
         expect(status).to be 403
       end
     end
 
-    put '/stops/:id' do
+    put '/courses/:id' do
       it 'put - access denied' do
-        do_request id: stop.id
+        do_request id: course.id
         expect(status).to be 403
       end
     end
 
-    delete '/stops/:id' do
+    delete '/courses/:id' do
       it 'delete - access denied' do
-        do_request id: stop.id
+        do_request id: course.id
         expect(status).to be 403
       end
     end
@@ -165,44 +187,51 @@ resource 'Stops' do
       header 'uid', token['uid']
     end
 
-    get '/stops' do
-      it 'index - list stops' do
+    get '/courses' do
+      it 'index - list courses' do
         do_request format: :json
         expect(status).to be 200
       end
     end
 
-    get '/stops/:id' do
-      it 'show - show stop' do
-        do_request id: stop.id
+    get '/courses/:id' do
+      it 'show - show course' do
+        do_request id: course.id
         expect(status).to be 200
       end
     end
 
-    get '/stops/:id/courses' do
-      it 'show - show stop courses' do
-        do_request id: stop.id
+    get '/courses/:id/stops' do
+      it 'show - show course stops' do
+        do_request id: course.id
         expect(status).to be 200
       end
     end
 
-    post '/stops' do
+    get '/courses/:id/buses' do
+      it 'show - show course buses' do
+        do_request id: course.id
+        expect(status).to be 200
+      end
+    end
+
+    post '/courses' do
       it 'post - access denied' do
-        do_request id: stop.id
+        do_request id: course.id
         expect(status).to be 403
       end
     end
 
-    put '/stops/:id' do
+    put '/courses/:id' do
       it 'put - access denied' do
-        do_request id: stop.id
+        do_request id: course.id
         expect(status).to be 403
       end
     end
 
-    delete '/stops/:id' do
+    delete '/courses/:id' do
       it 'delete - access denied' do
-        do_request id: stop.id
+        do_request id: course.id
         expect(status).to be 403
       end
     end
@@ -218,68 +247,55 @@ resource 'Stops' do
       header 'uid', token['uid']
     end
 
-    get '/stops' do
-      it 'index - list stops' do
+    get '/courses' do
+      it 'index - list courses' do
         do_request format: :json
         expect(status).to be 200
       end
     end
 
-    get '/stops/:id' do
-      it 'show - show stop' do
-        do_request id: stop.id
+    get '/courses/:id' do
+      it 'show - show course' do
+        do_request id: course.id
         expect(status).to be 200
       end
     end
 
-    get '/stops/:id/courses' do
-      it 'show - show stop courses' do
-        do_request id: stop.id
+    get '/courses/:id/stops' do
+      it 'show - show course stops' do
+        do_request id: course.id
         expect(status).to be 200
       end
     end
 
-    context 'post - create new stop' do
-      post '/stops' do
-        it 'validation failed - didnt send name' do
+    get '/courses/:id/buses' do
+      it 'show - show course buses' do
+        do_request id: course.id
+        expect(status).to be 200
+      end
+    end
+
+    context 'post - create new course' do
+      post '/courses' do
+        it 'ok' do
           do_request
-          expect(status).to be 422
-        end
-      end
-
-      post '/stops' do
-        it 'validation fail - name too short' do
-          do_request name: 'aaaa'
-          expect(status).to be 422
-        end
-      end
-
-      post '/stops' do
-        it 'validation pass - name too short' do
-          do_request name: 'aaaaa'
           expect(status).to be 201
         end
       end
     end
 
-    context 'put - update existing stop' do
-      put '/stops/:id' do
-        it 'validation failed - name too short' do
-          do_request id: stop.id, name: 'aaaa'
-          expect(status).to be 422
-        end
-      end
+    context 'put - update existing course' do
 
-      put '/stops/:id' do
+      put '/courses/:id' do
         it 'validation pass' do
-          do_request id: stop.id, name: 'aaaaa'
+          do_request id: stop.id
           expect(status).to be 204
         end
       end
     end
 
-    delete '/stops/:id' do
-      it 'delete - delete stop' do
+    delete '/courses/:id' do
+      it 'delete - delete course' do
         do_request id: stop.id
         expect(status).to be 204
       end

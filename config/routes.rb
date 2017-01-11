@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   end
 
   resources :courses do
+    resources :stops, shallow: true
   	resources :buses, shallow: true
   end
 

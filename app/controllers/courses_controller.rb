@@ -12,11 +12,11 @@ class CoursesController < ApplicationController
   end
 
   def create
-    respond_with Course.create() #course_params
+    respond_with Course.create(course_params)
   end
 
   def update
-    @course.update_attributes() #course_params
+    @course.update_attributes(course_params)
     respond_with @course
   end
 
@@ -26,7 +26,7 @@ class CoursesController < ApplicationController
 
   private
 
-  #def course_params
-  #  params.permit(:a, :b, :c)
-  #end
+  def course_params
+    params.permit()
+  end
 end
