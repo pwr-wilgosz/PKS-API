@@ -2,7 +2,7 @@ require 'rails_helper'
 require 'rspec_api_documentation/dsl'
 
 resource 'Courses' do
-  let(:course) { create :course, stops: [create(:stop)], buses: [create(:bus)] }
+  let(:course) { create :course, name: 'aaaaa', stops: [create(:stop, name: 'aaaaa')], buses: [create(:bus)] }
   let(:stop) { course.stops.first }
   let(:bus) { course.buses.first }
 
@@ -277,18 +277,39 @@ resource 'Courses' do
 
     context 'post - create new course' do
       post '/courses' do
-        it 'ok' do
+        it 'validation failed - didnt send name' do
           do_request
+          expect(status).to be 422
+        end
+      end
+
+      post '/stops' do
+        it 'validation failed - name too short' do
+          do_request name: 'aaaa'
+          expect(status).to be 422
+        end
+      end
+
+      post '/stops' do
+        it 'validation pass' do
+          do_request name: 'aaaaa'
           expect(status).to be 201
         end
       end
+
     end
 
     context 'put - update existing course' do
+      put '/courses/:id' do
+        it 'validation failed - name too short' do
+          do_request id: stop.id, name: 'aaaa'
+          expect(status).to be 422
+        end
+      end
 
       put '/courses/:id' do
         it 'validation pass' do
-          do_request id: stop.id
+          do_request id: stop.id, name: 'aaaaa'
           expect(status).to be 204
         end
       end

@@ -2,7 +2,7 @@ require 'rails_helper'
 require 'rspec_api_documentation/dsl'
 
 resource 'Stops' do
-  let(:stop) { create :stop, courses: [create(:course)] }
+  let(:stop) { create :stop, name: 'aaaaa', courses: [(create :course, name: 'aaaaa')] }
   let(:course) { stop.courses.first }
 
   context 'not authorized' do
@@ -248,14 +248,14 @@ resource 'Stops' do
       end
 
       post '/stops' do
-        it 'validation fail - name too short' do
+        it 'validation failed - name too short' do
           do_request name: 'aaaa'
           expect(status).to be 422
         end
       end
 
       post '/stops' do
-        it 'validation pass - name too short' do
+        it 'validation pass' do
           do_request name: 'aaaaa'
           expect(status).to be 201
         end
