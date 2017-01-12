@@ -24,6 +24,24 @@ class CoursesController < ApplicationController
     respond_with @course.destroy
   end
 
+  def remove_bus
+    respond_with @course.buses.delete(params[:bus_id])
+  end
+
+  def remove_stop
+    respond_with @course.stops.delete(params[:stop_id])
+  end
+
+  def add_bus
+    @course.buses << Bus.find(params[:bus_id])
+    respond_with @course.buses.find(params[:bus_id])
+  end
+
+  def add_stop
+    @course.stops << Stop.find(params[:stop_id])
+    respond_with @course.stops.find(params[:stop_id])
+  end
+
   private
 
   def course_params

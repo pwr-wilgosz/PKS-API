@@ -317,7 +317,51 @@ resource 'Courses' do
 
     delete '/courses/:id' do
       it 'delete - delete course' do
-        do_request id: stop.id
+        do_request id: course.id
+        expect(status).to be 204
+      end
+    end
+
+    post '/courses/:id/add_bus/:bus_id' do
+      let(:bus_new) { create :bus }
+
+      it 'post - create course bus' do
+        expect do
+          do_request id: course.id, bus_id: bus_new.id
+        end.to change{ course.buses.count }.by(1)
+
+        expect(status).to be 201
+      end
+    end
+
+    post '/courses/:id/add_stop/:stop_id' do
+      let(:stop_new) { create :stop }
+
+      it 'post - create course stop' do
+        expect do
+          do_request id: course.id, stop_id: stop_new.id
+        end.to change{ course.stops.count }.by(1)
+
+        expect(status).to be 201
+      end
+    end
+
+    delete '/courses/:id/remove_bus/:bus_id' do
+      it 'delete - delete course bus' do
+        expect do
+          do_request id: course.id, bus_id: bus.id
+        end.to change{ course.buses.count }.by(-1)
+
+        expect(status).to be 204
+      end
+    end
+
+    delete '/courses/:id/remove_stop/:stop_id' do
+      it 'delete - delete course stop' do
+        expect do
+          do_request id: course.id, stop_id: stop.id
+        end.to change{ course.stops.count }.by(-1)
+
         expect(status).to be 204
       end
     end

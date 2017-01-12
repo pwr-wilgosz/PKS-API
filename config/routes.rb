@@ -14,6 +14,12 @@ Rails.application.routes.draw do
   	resources :courses, shallow: true
   end
 
+  delete "/courses/:id/remove_bus/:bus_id", :to => "courses#remove_bus", :as => 'remove_course_bus'
+  delete "/courses/:id/remove_stop/:stop_id", :to => "courses#remove_stop", :as => 'remove_course_stop'
+
+  post "/courses/:id/add_bus/:bus_id", :to => "courses#add_bus", :as => 'add_course_bus'
+  post "/courses/:id/add_stop/:stop_id", :to => "courses#add_stop", :as => 'add_course_stop'
+
   root to: 'buses#index'
 end
 

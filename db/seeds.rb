@@ -32,8 +32,8 @@ Stop.create [
 
 Course.destroy_all
 Course.create [
-  { },
-  { }
+  { name: 'Pierwszy' },
+  { name: 'Drugi'  }
 ]
 
 CourseStop.destroy_all
