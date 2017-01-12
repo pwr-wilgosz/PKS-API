@@ -30,20 +30,21 @@ module Source
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
 
-    config.middleware.insert_before 0, "Rack::Cors", debug: true, logger: (-> { Rails.logger }) do
+    config.middleware.insert_before 0, Rack::Cors do
       allow do
         origins '*'
 
         resource '/cors',
           headers: :any,
-          methods: [:post, :get, :delete, :put, :patch, :options, :head],
-          credentials: true,
-          max_age: 0
+          methods: :any,
+          expose: ['Access-Control-Allow-Credentials', 'Access-Control-Allow-Methods', 'Access-Control-Allow-Origin', 'Access-Control-Expose-Headers', 'Access-Control-Max-Age', 'access-token', 'Cache-Control', 'client', 'Content-Type', 'ETag', 'expiry', 'token-type', 'Transfer-Encoding', 'uid', 'Vary', 'X-Content-Type-Options', 'X-Frame-Options', 'X-Request-Id', 'X-Runtime', 'X-XSS-Protection'],
+          credentials: true
 
         resource '*',
           headers: :any,
-          methods: [:get, :post, :delete, :put, :patch, :options, :head],
-          max_age: 0
+          methods: :any,
+          expose: ['Access-Control-Allow-Credentials', 'Access-Control-Allow-Methods', 'Access-Control-Allow-Origin', 'Access-Control-Expose-Headers', 'Access-Control-Max-Age', 'access-token', 'Cache-Control', 'client', 'Content-Type', 'ETag', 'expiry', 'token-type', 'Transfer-Encoding', 'uid', 'Vary', 'X-Content-Type-Options', 'X-Frame-Options', 'X-Request-Id', 'X-Runtime', 'X-XSS-Protection'],
+          credentials: true
       end
     end
   end
