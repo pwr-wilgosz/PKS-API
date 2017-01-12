@@ -35,12 +35,14 @@ module Source
         origins '*'
 
         resource '/cors',
-          headers: :any,
-          methods: [:post, :get, :delete, :put, :patch, :options, :head]
+          headers: ['Content-Type', 'Client', 'Access-Token'],
+          methods: [:post, :get, :delete, :put, :patch, :options, :head],
+          expose: ['Access-Control-Allow-Credentials', 'Access-Control-Allow-Methods', 'Access-Control-Allow-Origin', 'Access-Control-Expose-Headers', 'Access-Control-Max-Age', 'access-token', 'Cache-Control', 'client', 'Content-Type', 'ETag', 'expiry', 'token-type', 'Transfer-Encoding', 'uid', 'Vary', 'X-Content-Type-Options', 'X-Frame-Options', 'X-Request-Id', 'X-Runtime', 'X-XSS-Protection']
 
         resource '*',
-          headers: :any,
-          methods: [:get, :post, :delete, :put, :patch, :options, :head]
+          headers: ['Content-Type', 'Client', 'Access-Token'],
+          methods: [:get, :post, :delete, :put, :patch, :options, :head],
+          expose: ['Access-Control-Allow-Credentials', 'Access-Control-Allow-Methods', 'Access-Control-Allow-Origin', 'Access-Control-Expose-Headers', 'Access-Control-Max-Age', 'access-token', 'Cache-Control', 'client', 'Content-Type', 'ETag', 'expiry', 'token-type', 'Transfer-Encoding', 'uid', 'Vary', 'X-Content-Type-Options', 'X-Frame-Options', 'X-Request-Id', 'X-Runtime', 'X-XSS-Protection']
       end
     end
   end
